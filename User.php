@@ -85,6 +85,6 @@ class User
         $stmt->bindValue(1, $id);
         ($stmt->execute()) ?
           header('location: ./message.php?success=true') :
-          header('location: ./message.php?error=ture');
+          header('location: ./message.php?error=true');
     }
 }
