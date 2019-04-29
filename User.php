@@ -25,19 +25,18 @@ class User
         return $password;
     }
 
-    public static function validateName($name)
+    public static function validateName($sanitized_name)
     {
         $regex = "/[a-zA-z\s]{3,}/";
-        $valid_name = preg_match($regex, $name) ? true : false;
+        $valid_name = preg_match($regex, $sanitized_name) ? true : false;
 
         return $valid_name;
     }
 
-    public static function validateEmail($email)
+    public static function validateEmail($sanitized_email)
     {
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $regex = "/[a-zA-Z0-9.\-_]{1,}@{1}[a-zA-Z0-9]{3,}[.]{1}[a-zA-Z0-9]{1,}.{0,}/";
-        $valid_email = preg_match($regex, $email) ? true : false;
+        $valid_email = preg_match($regex, $sanitized_email) ? true : false;
 
         return $valid_email;
     }
